@@ -9,8 +9,10 @@ use App\Http\Services\ProductService;
 
 class ProductController extends Controller
 {
+    public function __construct(private ProductService $service)
+    {}
     /**
-     * Display a listing of the resource.
+     * Listar.
      */
     public function index()
     {
@@ -18,9 +20,9 @@ class ProductController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Cadastrar.
      */
-    public function store(Request $request)
+    public function store(ProductStoreRequest $request)
     {
         $product = $this->service->store($request->validated());
 
@@ -28,7 +30,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Buscar.
      */
     public function show(string $id)
     {
@@ -36,7 +38,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Editar.
      */
     public function update(ProductUpdateRequest $request, string $id)
     {
@@ -44,7 +46,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Excluir.
      */
     public function destroy(string $id)
     {
