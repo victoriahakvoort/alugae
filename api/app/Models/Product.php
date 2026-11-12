@@ -4,24 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Product extends Model
 {
     use HasFactory;
 
-    public const CATEGORIES = [
-        'Painéis',
-        'Mesas',
-        'Bandejas',
-        'Suportes',
-        'Decoração',
-        'Outros',
-    ];
-
     protected $fillable = [
         'name',
         'description',
-        'category',
+        'category_id',
         'stock',
         'daily_price',
         'image',
@@ -35,5 +27,10 @@ class Product extends Model
             'daily_price' => 'decimal:2',
             'enabled' => 'boolean',
         ];
+    }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
     }
 }

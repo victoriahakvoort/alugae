@@ -2,10 +2,8 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Product;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
 class ProductStoreRequest extends FormRequest
 {
@@ -27,8 +25,7 @@ class ProductStoreRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'category' => ['required', Rule::in(Product::CATEGORIES)],
-            'stock' => 'required|integer|min:0',
+            'category_id' => 'required|exists:categories,id',            'stock' => 'required|integer|min:0',
             'daily_price' => 'required|numeric|min:0',
             'image' => 'nullable|url',
             'enabled' => 'boolean',
