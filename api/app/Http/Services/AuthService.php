@@ -5,6 +5,7 @@ namespace App\Http\Services;
 use App\Http\Repositories\UserRepository;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
+use App\Models\User;
 
 class AuthService
 {
@@ -27,5 +28,10 @@ class AuthService
             'token' => $token,
             'user' => $user,
         ];
+    }
+
+    public function logout(User $user): void
+    {
+        $user->currentAccessToken()->delete();
     }
 }

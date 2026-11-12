@@ -13,6 +13,8 @@ class AuthController extends Controller
 
     /**
      * Faz login e devolve o token de acesso.
+     *
+     * @unauthenticated
      */
     public function login(LoginRequest $request)
     {
@@ -20,5 +22,23 @@ class AuthController extends Controller
             $request->validated('email'),
             $request->validated('password'),
         );
+    }
+
+    /**
+     * Encerra a sessão, invalidando o token atual.
+     */
+    public function logout(Request $request)
+    {
+        $this->service->logout($request->user());
+
+        return response()->noContent();
+    }
+
+    /**
+     * Devolve o usuário logado.
+     */
+    public function me(Request $request)
+    {
+        return $request->user();
     }
 }
