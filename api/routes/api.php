@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RentalController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -19,4 +20,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('products', ProductController::class);
     Route::apiResource('categories', CategoryController::class);
     Route::apiResource('users', UserController::class);
+    Route::apiResource('rentals', RentalController::class);
 });
