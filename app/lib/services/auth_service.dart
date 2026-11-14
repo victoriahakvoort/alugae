@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 
 import '../models/user.dart';
 import 'api_client.dart';
+import 'api_exception.dart';
 
 /// Sessão do usuário: login, logout e quem está logado.
 ///

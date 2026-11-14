@@ -39,4 +39,38 @@ abstract final class AppStrings {
   // Gerais
   static const String underConstruction = 'Em construção';
   static const String routeNotFound = 'Rota não encontrada';
+
+  // Produtos
+  static const String productsEmpty = 'Nenhum produto cadastrado ainda.';
+  static const String name = 'Nome';
+  static const String description = 'Descrição';
+  static const String category = 'Categoria';
+  static const String stock = 'Estoque';
+  static const String dailyPrice = 'Valor da diária (R\$)';
+  static const String status = 'Situação';
+  static const String active = 'Ativo';
+  static const String inactive = 'Inativo';
+  static const String units = 'unidades';
+  static const String noDescription = 'Sem descrição';
+  static const String noValue = '—';
+  static const String separator = ' · ';
+
+  // Ações
+  static const String save = 'Salvar';
+  static const String edit = 'Editar';
+  static const String delete = 'Excluir';
+  static const String cancel = 'Cancelar';
+  static const String tryAgain = 'Tentar novamente';
+
+  // Mensagens de produtos
+  static const String productSaved = 'Produto salvo com sucesso.';
+  static const String productDeleted = 'Produto excluído.';
+  static const String deleteProductTitle = 'Excluir produto?';
+  static const String deleteProductMessage = 'Essa ação não pode ser desfeita.';
+
+  // Validações numéricas
+  static const String validationInteger = 'Informe um número inteiro';
+  static const String validationNumber =
+      'Informe um valor válido (ex.: 150,00)';
+  static const String validationNonNegative = 'O valor não pode ser negativo';
 }

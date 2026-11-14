@@ -1,4 +1,5 @@
 import '../constants/app_strings.dart';
+import 'formatters.dart';
 
 /// Validações dos campos de formulário.
 ///
@@ -20,5 +21,27 @@ abstract final class Validators {
       r'^[^@\s]+@[^@\s]+\.[^@\s]+$',
     ).hasMatch(value!.trim());
     return valid ? null : AppStrings.validationEmail;
+  }
+
+  /// Número inteiro, zero ou maior (ex.: estoque).
+  static String? nonNegativeInt(String? value) {
+    final String? error = requiredField(value);
+    if (error != null) return error;
+
+    final int? number = int.tryParse(value!.trim());
+    if (number == null) return AppStrings.validationInteger;
+    if (number < 0) return AppStrings.validationNonNegative;
+    return null;
+  }
+
+  /// Número com decimais, zero ou maior (ex.: valor da diária).
+  static String? nonNegativeDecimal(String? value) {
+    final String? error = requiredField(value);
+    if (error != null) return error;
+
+    final double? number = Formatters.parseDecimal(value!);
+    if (number == null) return AppStrings.validationNumber;
+    if (number < 0) return AppStrings.validationNonNegative;
+    return null;
   }
 }

@@ -5,8 +5,9 @@ import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_spacing.dart';
 import '../../core/theme/app_text_styles.dart';
 import '../../core/utils/validators.dart';
-import '../../services/api_client.dart';
+import '../../services/api_exception.dart';
 import '../../services/auth_service.dart';
+import '../../core/constants/app_assets.dart';
 
 class SignInScreen extends StatefulWidget {
   const SignInScreen({super.key});
@@ -64,10 +65,7 @@ class _SignInScreenState extends State<SignInScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Image.asset(
-                    'assets/images/logo.png',
-                    height: AppSpacing.logoHeight,
-                  ),
+                  Image.asset(AppAssets.logo, height: AppSpacing.logoHeight),
                   const SizedBox(height: AppSpacing.xl),
                   TextFormField(
                     controller: _emailController,

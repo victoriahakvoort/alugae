@@ -9,4 +9,5 @@ abstract final class AppSpacing {
   static const double buttonHeight = 52;
   static const double logoHeight = 160;
   static const double loaderSize = 20;
+  static const double iconLg = 64;
 }
